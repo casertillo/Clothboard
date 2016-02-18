@@ -1,13 +1,7 @@
 // Dependencies
 var mongoose        = require('mongoose');
 var Crime           = require('./model.js');
-var nodemailer      = require('nodemailer');
 
-var Hogan = require('hogan.js');
-var fs = require('fs');
-
-var template = fs.readFileSync('./views/email.hjs','utf-8');
-var compiledTemplate = Hogan.compile(template);
 // Opens App Routes
 module.exports = function(app) {
 
@@ -41,31 +35,7 @@ module.exports = function(app) {
 
         //New User is saved in the db.
         newcrime.save(function(err, result){
-            if(err)
-                res.send(err);
 
-            url = "http://"+req.headers.host+"#/confirmation/"+newcrime._id;
-            var mailOptions = {
-                from: 'Not Safe Here <casertillo@gmail.com>', // sender address 
-                to: email, // list of receivers 
-                subject: 'Incident Confirmation', // Subject line 
-                html: compiledTemplate.render({urlconfirm: url})
-            };
-            var transporter = nodemailer.createTransport({
-            service: 'Gmail',
-            auth: {
-                user: process.env.U, // Your email id
-                pass: process.env.PASS // Your password
-                }
-            });
-
-            transporter.sendMail(mailOptions, function(error, info){
-                if(error){
-                    res.json({yo: 'error'});
-                }else{
-                    res.json('ok');
-                };
-            });
 
         });
     });

@@ -11,7 +11,7 @@
     <!-- CSS -->
     <link href="../bower_components/angular-material/angular-material.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css" />
+    <link href="css/main.css" rel="stylesheet">    
 
 
     <!-- JS Source -->
@@ -21,6 +21,7 @@
     <script src="../bower_components/angular-aria/angular-aria.js" type="text/javascript" ></script>
     <script src="../bower_components/angular-material/angular-material.js" type="text/javascript" ></script>
     <script src="../bower_components/angular-route/angular-route.min.js"></script>
+    <script src="../bower_components/angular-messages/angular-messages.min.js"></script>
     
 
         <!-- Angular Scripts -->
@@ -32,7 +33,11 @@
 <body>
         <div ng-view></div>
     <!-- Footer -->
-</div>
+        <footer>
+        <div layout="row" layout-align="center center" >
+            <span class="md-caption md-primary">ClothBoard all rights reserved ©</span>
+        </div>
+    </footer>
 </body>
 </html>
 

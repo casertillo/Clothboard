@@ -25,19 +25,7 @@ module.exports = function(app) {
     // --------------------------------------------------------
     // Provides method for saving new users in the db
     app.post('/crimes', function(req, res){
-        //EMAIL SETTINGS
-        email = req.body.email;
 
-        //END
-
-        // Creates a new User based on the Mongoose schema and the post bo.dy
-        var newcrime = new Crime(req.body.crime);
-
-        //New User is saved in the db.
-        newcrime.save(function(err, result){
-
-
-        });
     });
     
     app.post('/confirm', function(req, res){

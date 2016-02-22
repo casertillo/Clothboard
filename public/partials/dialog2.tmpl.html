@@ -1,0 +1,47 @@
+<md-dialog aria-label="Log in"  ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools" layout-align="center">
+        <h2>Log in</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="images/close.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <form name="SigninForm">
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block"  flex-gt-sm>
+            <label>Email</label>
+            <input required type="email" name="signEmail" ng-model="sign.Email"
+                   minlength="10" maxlength="50" ng-pattern="/^.+@.+\..+$/" />
+            <div ng-messages="SigninForm.signEmail.$error" role="alert">
+              <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                Your email must be between 10 and 30 characters long and look like an e-mail address.
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block"  flex-gt-sm>
+            <label>Password</label>
+            <input required type="password" name="password" ng-model="sign.password"
+                   minlength="6" maxlenght="20"/>
+            <div ng-messages="SigninForm.password.$error" role="alert">
+              <div ng-message-exp="['required', 'minlength', 'maxlength']">
+                Your password must be at least 6 characters.
+              </div>
+            </div>
+          </md-input-container>
+        </div layout-gt-sm="row">
+          <md-button class="md-primary" ng-click="newaccount($event)">Register</md-button>
+        <div>
+        </div>
+      <md-button class="add-tab md-warn md-raised" ng-disabled="!sign.Email || !sign.password" type="submit">Log in</md-button>
+        </form>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>

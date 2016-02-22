@@ -1,0 +1,71 @@
+
+
+<md-dialog aria-label="Sign up"  ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools" layout-align="center">
+        <h2>Sign up</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="images/close.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <form name="SigninForm">
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block"  flex-gt-sm>
+            <label>Email</label>
+            <input required type="email" name="signEmail" ng-model="sign.Email"
+                   minlength="10" maxlength="50" ng-pattern="/^.+@.+\..+$/" />
+            <div ng-messages="SigninForm.signEmail.$error" role="alert">
+              <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                Your email must be between 10 and 30 characters long and look like an e-mail address.
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block"  flex-gt-sm>
+            <label>Confirm Email</label>
+            <input required type="email" name="signConfirmEmail" ng-model="sign.signConfirmEmail"
+                    match="sign.Email" />
+            <div ng-messages="SigninForm.signConfirmEmail.$error" role="alert">
+              <div ng-message-exp="['required', 'match']">
+                Your email must match.
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block"  flex-gt-sm>
+            <label>Password</label>
+            <input required type="password" name="password" ng-model="sign.password"
+                   minlength="6" maxlenght="20"/>
+            <div ng-messages="SigninForm.password.$error" role="alert">
+              <div ng-message-exp="['required', 'minlength', 'maxlength']">
+                Your password must be at least 6 characters.
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block"  flex-gt-sm>
+            <label>Confirm Password</label>
+            <input required type="password" name="confirmPassword" ng-model="sign.confirmPassword"
+                   match="sign.password" />
+            <div ng-messages="SigninForm.confirmPassword.$error" role="alert">
+              <div ng-message-exp>
+                Your must match.
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+      <md-button class="add-tab md-warn md-raised" ng-disabled="!sign.Email || !sign.signConfirmEmail || !sign.password || !sign.confirmPassword" type="submit">Create account</md-button>
+        </form>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>
+

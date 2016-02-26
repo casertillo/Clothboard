@@ -24,3 +24,28 @@ md-content.md-default-theme, md-content {
  	background-color: #651fff;
  	color: #ffffff;
  }
+
+.intro{
+  min-height: 500px;
+  background: url("images/bgimg.jpg");
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: fixed;
+}
+
+.transp-bg{
+  background-color: transparent;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

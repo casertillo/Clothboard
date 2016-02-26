@@ -44,26 +44,14 @@
         </div>
   </md-toolbar>
 
-  <div flex layout="column" >
+  <div class="intro" flex layout="column">
       <!--LOGO AND CLOTHING SLIDER-->
-      <div layout="row" layout-align="center" style="margin-top:50px"flex>
-        <md-whiteframe layout layout-align="center" style="max-height: 200px" flex="70" >    
-          <img ng-src="images/clothboard.svg"  flex="100"></img>
-          <!--
-          <img bg-image ng-repeat="slide in slides"
-               ng-if="isCurrentSlideIndex($index)"
-               ng-src="{{slide.src}}" 
-               class="fullBg slide-left-animation"
-                flex="10">
-          </img>
-        
-          <img ng-src="images/board.svg"  flex="50"></img>
-        -->
-        </md-whiteframe>
+      <div class="transp-bg" layout="row" layout-align="center" style="margin-top:50px;"flex> 
+        <img ng-src="images/clothboard.svg" flex="70" layout-align="center" style="max-height: 200px;" ></img>
       </div>
       <!--BUTTON TO GO TO LOGIN-->
-      <div layout="row" layout-align="center"flex>
-        <md-button class="md-raised md-warn" style="margin-top:50px; margin-bottom:20px" ng-click="showLogIn($event)">Find your perfect fit</md-button>
+      <div class="transp-bg" layout="row" layout-align="center">
+        <md-button class="md-raised md-warn" flex style="margin-top:50px; margin-bottom:30px; max-width: 200px" ng-click="showLogIn($event)">join us now</md-button>
       </div>
   </div>
 

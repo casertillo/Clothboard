@@ -46,8 +46,8 @@
 
   <div flex layout="column" >
       <!--LOGO AND CLOTHING SLIDER-->
-      <div layout="row" layout-align="center" style="margin-top:50px"flex>
-        <md-whiteframe layout layout-align="center" style="max-height: 200px" flex="70" >    
+      <div layout="row" layout-align="center" class="header-logo-div"flex>
+        <md-whiteframe layout layout-align="center" class="header-logo-image" flex="70" >    
           <img ng-src="images/clothboard.svg"  flex="100"></img>
           <!--
           <img bg-image ng-repeat="slide in slides"
@@ -63,7 +63,7 @@
       </div>
       <!--BUTTON TO GO TO LOGIN-->
       <div layout="row" layout-align="center"flex>
-        <md-button class="md-raised md-warn" style="margin-top:50px; margin-bottom:20px" ng-click="showLogIn($event)">Find your perfect fit</md-button>
+        <md-button class="md-raised md-warn button-header" ng-click="showLogIn($event)">Find your perfect fit</md-button>
       </div>
   </div>
 
@@ -80,8 +80,8 @@
       <!--ROW WHERE EXPLAINS 3 STEPS-->
       <div layout="row" layout-sm="column" layout-xs="column">
         <!--first step-->
-        <div flex style="text-align: center;">
-            <img ng-src="images/upload.png" class="md-whiteframe-2dp" style="width:auto; height:auto;"></img>
+        <div flex class="how-align">
+            <img ng-src="images/upload.png" class="md-whiteframe-2dp" ></img>
             <md-card flex="70" flex-offset="15">
               <md-card-title>
                 <md-card-title-text>
@@ -96,7 +96,7 @@
             <md-card>
         </div>
         <!--second step-->
-        <div flex style="text-align: center;">
+        <div flex class="how-align">
           <img ng-src="images/draganddrop.png" class="md-whiteframe-2dp"></img>
           <md-card flex="70" flex-offset="15">
             <md-card-title>
@@ -112,7 +112,7 @@
           <md-card>
         </div>
         <!--third step-->
-        <div flex style="text-align: center;">
+        <div flex  class="how-align">
           <img ng-src="images/enjoy.png" class="md-whiteframe-2dp"></img>
           <md-card flex="70" flex-offset="15">
             <md-card-title>

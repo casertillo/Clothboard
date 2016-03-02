@@ -1,7 +1,10 @@
+"use strict";
 // Declares the initial angular module "meanMapApp". Module grabs other controllers and services.
-var app = angular.module('clothoardApp', ['mainCtrl','ngMaterial', 'ngRoute', 'ngMessages'])
+var app = angular.module('clothoardApp', ['mainCtrl','profileCtrl','ngMaterial', 'ngRoute', 'ngMessages', 'dndLists', 'angular-carousel']);
     // Configures Angular routing -- showing the relevant view and controller when needed.
-    .config(function($routeProvider, $mdThemingProvider){
+app.config(routes);
+
+function routes($routeProvider, $mdThemingProvider){
 
     $mdThemingProvider.theme('default')
           .primaryPalette("deep-purple")
@@ -9,9 +12,9 @@ var app = angular.module('clothoardApp', ['mainCtrl','ngMaterial', 'ngRoute', 'n
           .warnPalette('pink');
 
         // Join Team Control Panel
-        $routeProvider.when('/katy', {
-            controller: 'mainCtrl', 
-            templateUrl: 'katy.html',
+        $routeProvider.when('/profile', {
+            controller: 'profileCtrl', 
+            templateUrl: 'partials/profile.html',
 
             // Find Teammates Control Panel
         }).when('/', {
@@ -19,6 +22,10 @@ var app = angular.module('clothoardApp', ['mainCtrl','ngMaterial', 'ngRoute', 'n
             templateUrl: 'partials/main.html',
 
             // All else forward to the Join Team Control Panel
-        }).otherwise({redirectTo:'/'})
-    });
+        }).when('/testdrag', {
+            controller: 'profileCtrl',
+            templateUrl: 'partials/drag.html',
 
+            // All else forward to the Join Team Control Panel
+        }).otherwise({redirectTo:'/'})
+    };

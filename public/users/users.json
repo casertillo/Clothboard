@@ -1,0 +1,117 @@
+{
+	"users":
+	[
+		{
+			"_id": "001",
+			"name": "Sergio",
+			"lastname": "Castillo",
+			"avatar":"images/avatar-1.svg",
+			"closets":
+			[
+				{
+					"name": "shirts",
+					"description": "shirts from my closet #shirts #superheroes",
+					"security":"private",
+					"images":
+					[
+						{"url":"images/shirts/shirt1.png", "description":"#superman"},
+						{"url":"images/shirts/shirt2.jpeg", "description":"#flash"},
+						{"url":"images/shirts/shirt3.jpeg", "description":"#green latern"},
+						{"url":"images/shirts/shirt4.jpg", "description":"#iron man"}
+					]
+				},
+				{
+					"name": "pants",
+					"description": "pants from my closet #pants #jeans",
+					"security":"public",
+					"images":
+					[
+						{"url":"images/pants/pants1.jpg", "description":"#jeans"},
+						{"url":"images/pants/pants2.jpg", "description":"#kaki"},
+						{"url":"images/pants/pants3.jpg", "description":"because I love green"}
+					]
+				},
+				{
+					"name": "shoes",
+					"description": "I #love #shoes",
+					"security":"public",
+					"images":
+					[
+						{"url":"images/shoes/shoes1.jpg", "description":"nike air"},
+						{"url":"images/shoes/shoes2.jpg", "description":"looking good ;)"}
+					]
+				}
+			],
+			"catalogs":
+			[
+				{
+					"userid": "999",
+					"name":"H&M" ,
+					"closetname": "shirts fall 2016", 					
+					"images":
+					[
+						{"url":"images/hmshirt1.png", "description":""},
+						{"url":"images/hmshirt2.png", "description":""},
+						{"url":"images/hmshirt3.png", "description":""},
+						{"url":"images/hmshirt4.png", "description":""}
+					] 
+				},
+				{
+					"userid": "998", 
+					"name":"Primark",
+					"closetname": "pants fall 2016",
+					"images":
+					[
+						{"url":"images/primpants1.png", "description":""},
+						{"url":"images/primpants2.png", "description":""},
+						{"url":"images/primpants3.png", "description":""}
+					]
+
+				}
+			]
+		},
+		{
+			"_id": "999",
+			"name": "H&M",
+			"lastname": "",
+			"avatar":"images/avatar-1.svg",
+			"closets":
+			[
+				{
+					"name": "shirts fall 2016",
+					"images":
+					[
+						{"url":"images/hmshirt1.png", "description":""},
+						{"url":"images/hmshirt2.png", "description":""},
+						{"url":"images/hmshirt3.png", "description":""},
+						{"url":"images/hmshirt4.png", "description":""}
+					]
+				}
+			],
+			"catalogs":
+			[]
+		},
+		{
+			"_id": "998",
+			"name": "Primark",
+			"lastname": "",
+			"avatar":"images/avatar-1.svg",
+			"closets":
+			[
+				{
+					"name": "pants fall 2016",
+					"images":
+					[
+						{"url":"images/primpants1.png", "description":""},
+						{"url":"images/primpants2.png", "description":""},
+						{"url":"images/primpants3.png", "description":""}
+					]
+				}
+			],
+			"catalogs":
+			[]
+		}
+	]
+
+
+}

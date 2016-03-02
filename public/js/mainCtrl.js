@@ -1,6 +1,10 @@
+"use strict";
 var mainCtrl = angular.module('mainCtrl', ['ngMaterial', 'ngAnimate']);
 
-mainCtrl.directive('match', function($parse) {
+//DIrective to verify that values are the same
+mainCtrl.directive('match', checkmismatch);
+
+function checkmismatch($parse) {
   return {
     require: 'ngModel',
     link: function(scope, elem, attrs, ctrl) {
@@ -11,9 +15,12 @@ mainCtrl.directive('match', function($parse) {
       });
     }
   };
-});
+};
 
-mainCtrl.controller('mainCtrl', function($scope, $log, $http, $rootScope, $timeout, $mdDialog, $mdMedia, $anchorScroll, $location){
+//COntroller from the main page
+mainCtrl.controller('mainCtrl', mainFunction);
+
+function mainFunction($scope, $log, $http, $rootScope, $timeout, $mdDialog, $mdMedia, $anchorScroll, $location){
 
     $scope.openMenu = function($mdOpenMenu, ev) {
       originatorEv = ev;
@@ -22,11 +29,11 @@ mainCtrl.controller('mainCtrl', function($scope, $log, $http, $rootScope, $timeo
 
    var INTERVAL = 2500,
         slides = [
-	        {id:"image00", src:"images/H.svg"},
-	        {id:"image01", src:"images/shirtw.png"},
-	        {id:"image02", src:"images/shirt.png"},
-	        {id:"image03", src:"images/dress.png"},
-	        {id:"image04", src:"images/suit.png"},
+          {id:"image00", src:"images/H.svg"},
+          {id:"image01", src:"images/shirtw.png"},
+          {id:"image02", src:"images/shirt.png"},
+          {id:"image03", src:"images/dress.png"},
+          {id:"image04", src:"images/suit.png"},
             {id:"image04", src:"images/jeans.png"},
             {id:"image04", src:"images/coat.png"}
         ];
@@ -120,4 +127,4 @@ mainCtrl.controller('mainCtrl', function($scope, $log, $http, $rootScope, $timeo
     $location.hash(id);
     $anchorScroll();
   };
-});
+};

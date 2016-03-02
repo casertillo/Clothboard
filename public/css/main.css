@@ -1,3 +1,21 @@
+/*MAIN HTML STYLES*/
+.header-logo-div{
+  margin-top:50px;
+}
+
+.header-logo-image{
+  max-height: 200px
+}
+
+.button-header{
+  margin-top:50px; 
+  margin-bottom:20px;
+}
+
+.how-align{
+  text-align: center;
+}
+
 header{
     position: relative;
     width:100%;
@@ -13,7 +31,6 @@ header{
 md-content.md-default-theme, md-content {
   background-color: #ede7f6;
 }
-
 .inputdemoErrors .inputErrorsApp {
   min-height: 48px; }
 .inputdemoErrors md-input-container > p {
@@ -24,3 +41,193 @@ md-content.md-default-theme, md-content {
  	background-color: #651fff;
  	color: #ffffff;
  }
+
+.notifications-label {
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  border-radius: 50%;
+  position: absolute;
+  font-size: 12px;
+  top: 2px;
+  right: 2px;
+  background-color: #E75753;
+}
+
+// libs overrides
+.material-icons {
+  vertical-align: middle;
+}
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+.md-toolbar-tools h1 {
+  font-size: $font-size-large;
+}
+
+.toolbar-button {
+  min-width: 20px;
+}
+
+/*******************************************************************************/
+/*PROFILE*/
+.toolbar-height{
+  height:60px;
+}
+
+.toolbar-logo{
+  max-height:48px; 
+  width: 20%; 
+  position: absolute; 
+  bottom:0px;
+}
+
+.profile-column{
+  height:100%; 
+  min-height:100vh;
+}
+
+.white-background{
+  background-color: #FFFFFF;
+}
+
+.gray-background{
+  background-color:#EEEEEE
+}
+.container {
+  background-color: #fff;
+  max-height: 200px;
+  height: 200px;
+  width: 100%px;
+  max-width: 200px;
+
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+}
+
+  .slider {
+    width: 100%;
+    height: 100%;
+  }
+
+    .slider ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      height: 100%;
+      transition: all .6s ease-in-out;
+    }
+
+    .slider li {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      float: left;  
+    }
+
+    .slider li img {
+      width: 100%;
+      border: none;
+      min-height: 100%;
+    }
+
+    li .slider:hover .iconsleft{
+
+      display:block;
+    }
+
+    li .slider:hover .iconsright{
+
+      display:block;
+    }
+    
+    li .slider:hover .iconclear{
+
+      display:block;
+    }
+    .iconsleft{
+      position: absolute;
+      bottom: 30%;
+      left: 0;
+      display: none;
+    }
+
+    .iconsright{
+      position: absolute;
+      bottom: 30%;
+      right: 0;
+      display: none;
+    }
+
+    .iconclear{
+      position: absolute;
+      top: 0%;
+      right: 0%; 
+      display: none;
+    }
+
+
+    /*******************************************************+*/
+    /**
+ * For the correct positioning of the placeholder element, the dnd-list and
+ * it's children must have position: relative
+ */
+.simplednd ul[dnd-list],
+.simplednd ul[dnd-list] > li {
+  position: relative;
+}
+
+/**
+ * The dnd-list should always have a min-height,
+ * otherwise you can't drop to it once it's empty
+ */
+.simplednd ul[dnd-list] {
+    min-height: 42px;
+    padding-left: 0px;
+}
+
+/**
+ * The dndDraggingSource class will be applied to
+ * the source element of a drag operation. It makes
+ * sense to hide it to give the user the feeling
+ * that he's actually moving it.
+ */
+.simplednd ul[dnd-list] .dndDraggingSource {
+    display: none;
+}
+
+/**
+ * An element with .dndPlaceholder class will be
+ * added to the dnd-list while the user is dragging
+ * over it.
+ */
+.simplednd ul[dnd-list] .dndPlaceholder {
+    display: block;
+    background-color: #fff;
+    min-height: 42px;
+    border-style: dashed;
+    border-width: 5px;
+    border-color: #666666;
+}
+
+/**
+ * The dnd-lists's child elements currently MUST have
+ * position: relative. Otherwise we can not determine
+ * whether the mouse pointer is in the upper or lower
+ * half of the element we are dragging over. In other
+ * browsers we can use event.offsetY for this.
+ */
+.simplednd ul[dnd-list] li {
+    background-color: #fff;
+    /*border: 1px solid #ddd;*/
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    display: block;
+    /*padding: 10px 15px;*/
+    margin-bottom: -1px;
+}

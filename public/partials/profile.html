@@ -2,7 +2,7 @@
         <img hide-sm hide-xs class="toolbar-logo" ng-src="images/clothboardtoolbar.svg"></img>
         <span flex></span>
         <md-input-container md-no-float class="md-block">
-          <input  type="text" placeholder="Search">
+          <input  type="text" placeholder="Search" ng-model="searchText">
           </md-input-container>
         <md-input-container class="md-block">
 
@@ -25,7 +25,7 @@
       <div layout="row" class="profile-column">
           <div flex="15" flex-sm="25" hide-xs layout-margin  id="board"  class="white-background">
             <div layout="row" layout-margin>
-              <md-icon md-svg-icon="{{avatar}}" class="avatar"></md-icon>
+              <img ng-src="{{avatar}}" class="avatar"></img>
               <span class="md-caption">{{usernamedisplay}}</span>
             </div>
             <md-divider></md-divider>
@@ -59,14 +59,40 @@
             </div> 
           </div>
             
-          <div flex="30" flex-sm="30" hide-xs layout-margin class="simplednd white-background">
+          <div flex="20" flex-sm="20" hide-xs layout-margin class="simplednd white-background">
             <div layout="row" class="gray-background" >
               <span class="md-title how-align" >Drag your galleries and Drop it here!</span>
             </div>
             <div ng-include="'partials/simple2.html'"></div>
           </div>
 
-          <div flex="45" flex-gt-sm="45" flex-xs="100" class="white-background" layout-margin>Search Grid</div>
+          <div flex="55" flex-gt-sm="55" flex-xs="100" class="white-background" layout-margin>
+            <md-grid-list md-cols-xs="1" md-cols-sm="1" md-cols-md="2" md-cols-gt-md="3"
+            md-row-height-gt-md="1:1" md-row-height="2:2" 
+            md-gutter="5px" md-gutter-gt-sm="8px">
+              <md-grid-tile  ng-repeat="item in models.lists.C | orderBy:'-date' | filter : searchText" ng-style="{'background': item.color}" ng-class="{'md-whiteframe-5dp': hovering}"ng-mouseenter="hovering=true" ng-mouseleave="hovering=false">
+              <div layout="column">
+                <div layout="row" >
+                  <img ng-src="{{item.useravatar}}" class="add-gallery"></img>
+                  <span class="md-caption">{{item.username}}</span>
+                  <span flex></span>
+                  <md-icon md-svg-src="images/add.svg" aria-label="Add" class="add-gallery"></md-icon>
+                </div>
+                <div layout="row">
+                                  <li style="list-style-type: none;" >
+                  <div class="container">
+                    <div class="slider" create-slider urls='item.urls' current="current" item="item" list="models.lists.C">
+                    </div>
+                  </div>
+                </li>
+                </div>
+              </div>
+                <md-grid-tile-footer>
+                  <h3>{{item.name}}</h3>
+                </md-grid-tile-footer>
+              </md-grid-tile >
+          </md-grid-list>
+          </div>
 
           <div flex="10" flex-sm="0" hide-xs layout-margin></div>
       </div>

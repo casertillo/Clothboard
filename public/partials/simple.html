@@ -1,7 +1,8 @@
 
 <!-- The dnd-list directive allows to drop elements into it.
      The dropped data will be added to the referenced list -->
-<ul dnd-list="models.lists.A">
+<ul dnd-list="models.lists.A"
+    dnd-disable-if="models.lists.A == models.lists.A">
     <!-- The dnd-draggable directive makes an element draggable and will
          transfer the object that was assigned to it. If an element was
          dragged away, you have to remove it from the original list
@@ -27,7 +28,7 @@
             </md-menu-content>
         </md-menu>
         <div class="container" ng-if="listName == 'B'">
-            <div class="slider" create-slider urls='item.urls' current="current" >
+            <div class="slider" create-slider urls='item.urls' current="current" item="item" list="models.lists.A">
             </div>
         </div>
     </li>

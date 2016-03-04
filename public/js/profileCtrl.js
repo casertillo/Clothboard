@@ -7,7 +7,7 @@ var profileCtrl = angular.module('profileCtrl', ['ngMaterial', 'ngAnimate']);
         return {
             restrict: 'A',
             scope: {
-                links: '=urls', current: '=', list: '=', item:'=',
+                links: '=urls', current: '=', list: '=', item:'=', removebutton:'=',
             },
             /* Allows have the index and the current image*/
             template: '<ul class="slides" effect-slider>'+
@@ -25,7 +25,7 @@ var profileCtrl = angular.module('profileCtrl', ['ngMaterial', 'ngAnimate']);
                                 '<md-icon md-svg-src="images/right.svg"></md-icon>'+
                             '</md-button>'+
                         '</div>'+
-                        '<div class="iconclear">'+
+                        '<div ng-class="{iconclear: removebutton}">'+
                             '<md-button class="md-icon-button" aria-label="Clean" ng-click="clear()">'+
                                 '<md-icon md-svg-src="images/clear.svg"></md-icon>'+
                             '</md-button>'+
@@ -95,8 +95,14 @@ var profileCtrl = angular.module('profileCtrl', ['ngMaterial', 'ngAnimate']);
 profileCtrl.controller('profileCtrl', profileFunction);
 
 function profileFunction($scope, $timeout, $mdSidenav, $log, $http, $rootScope, $filter){
-  
-  var users = $http.get('users/users.json').success(function(data){
+
+    var COLORS = ['#ffcdd2', '#ef9a9a', '#e57373', '#ff8a80', '#f8bbd0', '#f48fb1', '#ff80ab', '#e1bee7', '#ce93d8', '#ea80fc', '#9fa8da', '#c5cae9', '#64b5f6', '#42a5f5', '#90caf9', '#bbdefb', '#81d4fa','#4fc3f7', '#29b6f6','#26c6da','#80deea','#b2ebf2','#4dd0e1','#4db6ac','#26a69a','#4db6ac','#80cbc4','#81c784','#a5d6a7','#66bb6a','#ffee58','#fbc02d','#fdd835','#f9a825','#f57c00','#fb8c00','#ff7043','#ff8a65','#ffab91','#90a4ae','#b0bec5'];
+    
+    function randomColor() {
+        return COLORS[Math.floor(Math.random() * COLORS.length)];
+    }
+
+    var users = $http.get('users/users.json').success(function(data){
     var user = $filter('filter')(data.users, function (d) {return d._id === '001';})[0];
     $scope.avatar = user.avatar;
 
@@ -118,15 +124,39 @@ function profileFunction($scope, $timeout, $mdSidenav, $log, $http, $rootScope, 
     $scope.catalogs = user.catalogs;
 
     $scope.models = {
-        lists: {"A": [], "B": []}
+        lists: {"A": [], "B": [], "C":[]}
     };
+
+    var friend;
+    angular.forEach(user.friends, function(value, key){
+        
+        friend = $filter('filter')(data.users, function (d) {return d._id === value;})[0];
+
+        angular.forEach(friend.closets, function(value, key){
+            var allurls = [];
+            angular.forEach(value.images, function(value, key){
+                 allurls.push(value.url);
+             });
+            
+            $scope.models.lists.C.push({
+                    name: value.name, 
+                    size: value.images.length, 
+                    urls: allurls, 
+                    color: randomColor(),
+                    username: friend.name +' '+ friend.lastname,
+                    useravatar: friend.avatar,
+                    date: value.dateadded
+                });
+        });
+    });
 
     angular.forEach($scope.closets, function(value, key){
         var allurls = [];
         angular.forEach(value.images, function(value, key){
              allurls.push(value.url);
          });
-      $scope.models.lists.A.push({name: value.name, size: value.images.length, urls: allurls});
+        
+        $scope.models.lists.A.push({name: value.name, size: value.images.length, urls: allurls, color: randomColor()});
     });
 
   });

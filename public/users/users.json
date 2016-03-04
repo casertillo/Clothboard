@@ -5,40 +5,44 @@
 			"_id": "001",
 			"name": "Sergio",
 			"lastname": "Castillo",
-			"avatar":"images/avatar-1.svg",
+			"avatar":"images/sergio/sergio.jpg",
+			"friends":["999","998","002","003"],
 			"closets":
 			[
 				{
 					"name": "shirts",
 					"description": "shirts from my closet #shirts #superheroes",
 					"security":"private",
+					"dateadded":"2016-01-04T14:29:39.615Z", 
 					"images":
 					[
-						{"url":"images/shirts/shirt1.png", "description":"#superman"},
-						{"url":"images/shirts/shirt2.jpeg", "description":"#flash"},
-						{"url":"images/shirts/shirt3.jpeg", "description":"#green latern"},
-						{"url":"images/shirts/shirt4.jpg", "description":"#iron man"}
+						{"url":"images/sergio/shirts/shirt1.png", "description":"#superman"},
+						{"url":"images/sergio/shirts/shirt2.jpeg", "description":"#flash"},
+						{"url":"images/sergio/shirts/shirt3.jpeg", "description":"#green latern"},
+						{"url":"images/sergio/shirts/shirt4.jpg", "description":"#iron man"}
 					]
 				},
 				{
 					"name": "pants",
 					"description": "pants from my closet #pants #jeans",
 					"security":"public",
+					"dateadded":"2016-12-12T14:29:39.615Z",
 					"images":
 					[
-						{"url":"images/pants/pants1.jpg", "description":"#jeans"},
-						{"url":"images/pants/pants2.jpg", "description":"#kaki"},
-						{"url":"images/pants/pants3.jpg", "description":"because I love green"}
+						{"url":"images/sergio/pants/pants1.jpg", "description":"#jeans"},
+						{"url":"images/sergio/pants/pants2.jpg", "description":"#kaki"},
+						{"url":"images/sergio/pants/pants3.jpg", "description":"because I love green"}
 					]
 				},
 				{
 					"name": "shoes",
 					"description": "I #love #shoes",
 					"security":"public",
+					"dateadded":"2016-02-02T14:29:39.615Z",
 					"images":
 					[
-						{"url":"images/shoes/shoes1.jpg", "description":"nike air"},
-						{"url":"images/shoes/shoes2.jpg", "description":"looking good ;)"}
+						{"url":"images/sergio/shoes/shoes1.jpg", "description":"nike air"},
+						{"url":"images/sergio/shoes/shoes2.jpg", "description":"looking good ;)"}
 					]
 				}
 			],
@@ -47,7 +51,7 @@
 				{
 					"userid": "999",
 					"name":"H&M" ,
-					"closetname": "shirts fall 2016", 					
+					"closetname": "shirts fall 2016", 				
 					"images":
 					[
 						{"url":"images/hmshirt1.png", "description":""},
@@ -74,17 +78,19 @@
 			"_id": "999",
 			"name": "H&M",
 			"lastname": "",
-			"avatar":"images/avatar-1.svg",
+			"avatar":"images/hnm.jpg",
+			"friends":[],
 			"closets":
 			[
 				{
 					"name": "shirts fall 2016",
+					"dateadded":"2016-02-04T14:29:39.615Z",	
 					"images":
 					[
-						{"url":"images/hmshirt1.png", "description":""},
-						{"url":"images/hmshirt2.png", "description":""},
-						{"url":"images/hmshirt3.png", "description":""},
-						{"url":"images/hmshirt4.png", "description":""}
+						{"url":"images/hnm/shirts/shirt-1.jpg", "description":""},
+						{"url":"images/hnm/shirts/shirt-2.jpg", "description":""},
+						{"url":"images/hnm/shirts/shirt-3.jpg", "description":""},
+						{"url":"images/hnm/shirts/shirt-4.jpg", "description":""}
 					]
 				}
 			],
@@ -95,22 +101,179 @@
 			"_id": "998",
 			"name": "Primark",
 			"lastname": "",
-			"avatar":"images/avatar-1.svg",
+			"avatar":"images/primark.jpg",
+			"friends":[],
 			"closets":
 			[
 				{
 					"name": "pants fall 2016",
+					"dateadded":"2015-10-10T14:29:39.615Z",
 					"images":
 					[
-						{"url":"images/primpants1.png", "description":""},
-						{"url":"images/primpants2.png", "description":""},
-						{"url":"images/primpants3.png", "description":""}
+						{"url":"images/primark/pants/pants-1.jpg", "description":""},
+						{"url":"images/primark/pants/pants-2.jpg", "description":""},
+						{"url":"images/primark/pants/pants-3.jpg", "description":""}
 					]
 				}
 			],
 			"catalogs":
 			[]
-		}
+		},
+		{
+			"_id": "002",
+			"name": "Peter",
+			"lastname": "Millar",
+			"avatar":"images/peter/peter.jpg",
+			"friends":["999","001","003","004"],
+			"closets":
+			[
+				{
+					"name": "Shirts W&F",
+					"description": "shirts from my closet #shirts #superheroes",
+					"security":"private",
+					"dateadded":"2016-1-10T14:29:39.615Z",
+					"images":
+					[
+						{"url":"images/peter/shirts/shirt-4.jpg", "description":"#squiares"},
+						{"url":"images/peter/shirts/shirt-5.jpg", "description":"#night"},
+						{"url":"images/peter/shirts/shirt-6.jpg", "description":"#gcasual"},
+						{"url":"images/peter/shirts/shirt-7.jpeg", "description":"#cowboy yeah!"}
+					]
+				},
+				{
+					"name": "Jeans",
+					"description": "pants from my closet #pants #jeans",
+					"security":"public",
+					"dateadded":"2016-2-12T14:29:39.615Z",
+					"images":
+					[
+						{"url":"images/peter/pants/pants-1.jpg", "description":"casual sunday"},
+						{"url":"images/peter/pants/pants-2.jpg", "description":"all black"},
+						{"url":"images/peter/pants/pants-3.jpg", "description":"oh gray day"},
+						{"url":"images/peter/pants/pants-8.jpg", "description":"#jeans"},
+						{"url":"images/peter/pants/pants-9.jpg", "description":"#kaki"},
+						{"url":"images/peter/pants/pants-10.jpg", "description":"because I love black"}
+					]
+				},
+				{
+					"name": "Footwear",
+					"description": "Shoes is all I need",
+					"security":"public",
+					"dateadded":"2015-12-12T14:29:39.615Z",
+					"images":
+					[
+						{"url":"images/peter/shoes/shoes-1.jpg", "description":"converse"},
+						{"url":"images/peter/shoes/shoes-5.jpg", "description":"oxford baby"}
+					]
+				}
+			],
+			"catalogs":
+			[
+				{
+					"userid": "999",
+					"name":"H&M" ,
+					"closetname": "shirts fall 2016", 					
+					"images":
+					[
+						{"url":"images/hmshirt1.png", "description":""},
+						{"url":"images/hmshirt2.png", "description":""},
+						{"url":"images/hmshirt3.png", "description":""},
+						{"url":"images/hmshirt4.png", "description":""}
+					] 
+				},
+				{
+					"userid": "001", 
+					"name":"Sergio",
+					"closetname": "shirts",
+					"images":
+					[
+						{"url":"images/sergio/shirts/shirt1.png", "description":"#superman"},
+						{"url":"images/sergio/shirts/shirt2.jpeg", "description":"#flash"},
+						{"url":"images/sergio/shirts/shirt3.jpeg", "description":"#green latern"},
+						{"url":"images/sergio/shirts/shirt4.jpg", "description":"#iron man"}
+					]
+
+				}
+			]
+		},
+		{
+			"_id": "003",
+			"name": "Kevin",
+			"lastname": "Reaves",
+			"avatar":"images/kevin/kevin.jpg",
+			"friends":["999","001","003","004"],
+			"closets":
+			[
+				{
+					"name": "T-Shirts",
+					"description": "shirts from my closet #shirts #squares",
+					"security":"private",
+					"dateadded":"2015-1-10T14:29:39.615Z",
+					"images":
+					[
+						{"url":"images/kevin/shirts/shirt-1.jpg", "description":"#squiares"},
+						{"url":"images/kevin/shirts/shirt-2.jpg", "description":"#night"},
+						{"url":"images/kevin/shirts/shirt-3.jpg", "description":"#gcasual"},
+						{"url":"images/kevin/shirts/shirt-8.jpeg", "description":"#gcasual"},
+						{"url":"images/kevin/shirts/shirt-9.jpeg", "description":"#gcasual"},
+						{"url":"images/kevin/shirts/shirt-10.png", "description":"#cowboy yeah!"}
+					]
+				},
+				{
+					"name": "Cowboys",
+					"description": "pants from my closet #pants #jeans",
+					"security":"public",
+					"dateadded":"2015-11-11T14:29:39.615Z",
+					"images":
+					[
+						{"url":"images/kevin/pants/pants-4.jpg", "description":"casual sunday"},
+						{"url":"images/kevin/pants/pants-5.jpg", "description":"all black"},
+						{"url":"images/kevin/pants/pants-6.jpg", "description":"oh gray day"},
+						{"url":"images/kevin/pants/pants-7.jpg", "description":"#jeans"}
+					]
+				},
+				{
+					"name": "Shoes",
+					"description": "Shoes is all I need",
+					"security":"public",
+					"dateadded":"2016-2-12T14:29:39.615Z",
+					"images":
+					[
+						{"url":"images/kevin/shoes/shoes-2.jpg", "description":"converse red"},
+						{"url":"images/kevin/shoes/shoes-3.jpg", "description":"boots"},
+						{"url":"images/kevin/shoes/shoes-4.jpg", "description":"luxury"}
+					]
+				}
+			],
+			"catalogs":
+			[
+				{
+					"userid": "999",
+					"name":"H&M" ,
+					"closetname": "shirts fall 2016", 					
+					"images":
+					[
+						{"url":"images/hmshirt1.png", "description":""},
+						{"url":"images/hmshirt2.png", "description":""},
+						{"url":"images/hmshirt3.png", "description":""},
+						{"url":"images/hmshirt4.png", "description":""}
+					] 
+				},
+				{
+					"userid": "001", 
+					"name":"Sergio",
+					"closetname": "shirts",
+					"images":
+					[
+						{"url":"images/sergio/shirts/shirt1.png", "description":"#superman"},
+						{"url":"images/sergio/shirts/shirt2.jpeg", "description":"#flash"},
+						{"url":"images/sergio/shirts/shirt3.jpeg", "description":"#green latern"},
+						{"url":"images/sergio/shirts/shirt4.jpg", "description":"#iron man"}
+					]
+
+				}
+			]
+		}		
 	]
 
 

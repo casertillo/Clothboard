@@ -12,7 +12,7 @@ var profileCtrl = angular.module('profileCtrl', ['ngMaterial', 'ngAnimate']);
             /* Allows have the index and the current image*/
             template: '<ul class="slides" effect-slider>'+
                             '<li ng-repeat="url in links track by $index"  ng-style="{width: 100/links.length + \'%\'}">'+
-                                '<img ng-src="{{url}}"/>'+
+                                '<img ng-src="{{url}}" style="max-height:100%; height:auto;"/>'+
                             '</li>'+
                         '</ul>'+
                         '<div class="iconsleft">'+
@@ -124,7 +124,7 @@ function profileFunction($scope, $timeout, $mdSidenav, $log, $http, $rootScope, 
     $scope.catalogs = user.catalogs;
 
     $scope.models = {
-        lists: {"A": [], "B": [], "C":[]}
+        lists: {"Closets": [], "Dnd": [], "Dashboard":[], "Catalogs":[]}
     };
 
     var friend;
@@ -138,14 +138,15 @@ function profileFunction($scope, $timeout, $mdSidenav, $log, $http, $rootScope, 
                  allurls.push(value.url);
              });
             
-            $scope.models.lists.C.push({
+            $scope.models.lists.Dashboard.push({
                     name: value.name, 
                     size: value.images.length, 
                     urls: allurls, 
                     color: randomColor(),
                     username: friend.name +' '+ friend.lastname,
                     useravatar: friend.avatar,
-                    date: value.dateadded
+                    date: value.dateadded, 
+                    friend: friend._id
                 });
         });
     });
@@ -156,11 +157,39 @@ function profileFunction($scope, $timeout, $mdSidenav, $log, $http, $rootScope, 
              allurls.push(value.url);
          });
         
-        $scope.models.lists.A.push({name: value.name, size: value.images.length, urls: allurls, color: randomColor()});
+        $scope.models.lists.Closets.push({name: value.name, size: value.images.length, urls: allurls});
+    });
+
+    angular.forEach($scope.catalogs, function(value, key){
+        var allurls = [];
+        angular.forEach(value.images, function(value, key){
+             allurls.push(value.url);
+         });
+        if(value.name.length > 11)
+        {
+            value.name = value.name.substr(0,11)+'...';
+        }
+        $scope.models.lists.Catalogs.push({name: value.name, size: value.images.length, urls: allurls});
     });
 
   });
-
+    $scope.addToCatalogs = function(catalog)
+    {
+        if($scope.models.lists.Catalogs.indexOf(catalog) == -1)
+        {
+            if(catalog.name.length > 11)
+            {
+                catalog.name = catalog.name.substr(0,11)+'...';
+            }
+           $scope.models.lists.Catalogs.push(catalog); 
+        }
+        
+    }
+    $scope.removeCatalog = function(catalog)
+    {
+        var index = $scope.models.lists.Catalogs.indexOf(catalog);
+        $scope.models.lists.Catalogs.splice(index, 1); 
+    }
     // Model to JSON for demo purpose
     $scope.$watch('models', function(model) {
         $scope.modelAsJson = angular.toJson(model, true);

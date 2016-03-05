@@ -228,6 +228,12 @@ md-content.md-default-theme, md-content {
  * half of the element we are dragging over. In other
  * browsers we can use event.offsetY for this.
  */
+
+ .closetname:hover{
+    cursor: move;
+ }
+
+
 .simplednd ul[dnd-list] li {
     background-color: #fff;
     /*border: 1px solid #ddd;*/

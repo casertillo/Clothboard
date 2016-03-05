@@ -23,65 +23,57 @@
 
     <md-content layout="column" >
       <div layout="row" class="profile-column">
-          <div flex="15" flex-sm="25" hide-xs layout-margin  id="board"  class="white-background">
+          <!--MARGIN LEFT-->
+          <div flex="5" hide-xs hide-sm layout-margin></div>
+
+          <!--Menu Toolbar area-->
+          <div flex="15" flex-sm="30"hide-xs layout-margin  id="board"  class="white-background">
             <div layout="row" layout-margin>
               <img ng-src="{{avatar}}" class="avatar"></img>
               <span class="md-caption">{{usernamedisplay}}</span>
             </div>
             <md-divider></md-divider>
             <div layout="row" layout-margin class="gray-background">
-              <span class="md-body-2" >CLOSET({{closetnum}})</span>
+              <span class="md-body-2">CLOSET({{closetnum}})</span>
             </div>
             <div layout="row" layout-margin class="simplednd">
-                <div ng-include="'partials/simple.html'"></div>
+                <div ng-include="'partials/closets.html'"></div>
             </div>  
          
             <md-divider></md-divider>
             <div layout="row" layout-margin class="gray-background">
-              <span class="md-body-2" >CATALOGS({{catalogs.length}})</span>
+              <span class="md-body-2" flex>CATALOGS({{catalogs.length}})</span>
             </div>
-            <div layout="row" layout-margin ng-repeat="catalog in catalogs" ng-mouseenter="show = true" ng-mouseleave="show = false" layout-align="center center">
-              <div layout="column" flex="50">
-                <span> {{catalog.name}}({{catalog.images.length}})</span>
-              </div>
-              <div layout="column" flex="50">
-              <md-menu>
-                <md-button class="md-icon-button" aria-label="Settings" ng-click="$mdOpenMenu($event)" ng-show="show">
-                  <md-icon md-svg-icon="images/settings.svg"></md-icon>
-                </md-button> 
-                <md-menu-content width="2">
-                  <md-menu-item>
-                    <md-button> <span md-menu-align-target>Remove</span></md-button>
-                  </md-menu-item>
-                </md-menu-content>
-              </md-menu>
+            <div layout="row" layout-margin class="simplednd">
+                <div ng-include="'partials/catalogs.html'"></div>
             </div>  
-            </div> 
           </div>
             
-          <div flex="20" flex-sm="20" hide-xs layout-margin class="simplednd white-background">
+          <!--Drag and Drop area-->  
+          <div flex="25" hide-xs hide-sm layout-margin class="simplednd white-background">
             <div layout="row" class="gray-background" >
               <span class="md-title how-align" >Drag your galleries and Drop it here!</span>
             </div>
-            <div ng-include="'partials/simple2.html'"></div>
+            <div ng-include="'partials/dashboard.html'"></div>
           </div>
 
-          <div flex="55" flex-gt-sm="55" flex-xs="100" class="white-background" layout-margin>
+          <!--Content área to add more galleries-->
+          <div flex="70" flex-xs="100" class="white-background" layout-margin style="overflow: scroll; height:100vh" >
             <md-grid-list md-cols-xs="1" md-cols-sm="1" md-cols-md="2" md-cols-gt-md="3"
             md-row-height-gt-md="1:1" md-row-height="2:2" 
-            md-gutter="5px" md-gutter-gt-sm="8px">
-              <md-grid-tile  ng-repeat="item in models.lists.C | orderBy:'-date' | filter : searchText" ng-style="{'background': item.color}" ng-class="{'md-whiteframe-5dp': hovering}"ng-mouseenter="hovering=true" ng-mouseleave="hovering=false">
+            md-gutter="2px" md-gutter-gt-sm="2px">
+              <md-grid-tile  ng-repeat="item in models.lists.Dashboard | orderBy:'-date' | filter : searchText" ng-style="{'background': item.color}" ng-class="{'md-whiteframe-5dp': hovering}"ng-mouseenter="hovering=true" ng-mouseleave="hovering=false">
               <div layout="column">
                 <div layout="row" >
                   <img ng-src="{{item.useravatar}}" class="add-gallery"></img>
                   <span class="md-caption">{{item.username}}</span>
                   <span flex></span>
-                  <md-icon md-svg-src="images/add.svg" aria-label="Add" class="add-gallery"></md-icon>
+                  <md-icon md-svg-src="images/add.svg" aria-label="Add" class="add-gallery" ng-click="addToCatalogs(item)"></md-icon>
                 </div>
                 <div layout="row">
                                   <li style="list-style-type: none;" >
                   <div class="container">
-                    <div class="slider" create-slider urls='item.urls' current="current" item="item" list="models.lists.C">
+                    <div class="slider" create-slider urls='item.urls' current="current" item="item" list="models.lists.Dashboard">
                     </div>
                   </div>
                 </li>
@@ -94,7 +86,8 @@
           </md-grid-list>
           </div>
 
-          <div flex="10" flex-sm="0" hide-xs layout-margin></div>
+          <!--Margin Right-->
+          <div flex="5" hide-xs hide-sm layout-margin></div>
       </div>
     </md-content>
 

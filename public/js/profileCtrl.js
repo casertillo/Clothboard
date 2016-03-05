@@ -94,16 +94,16 @@ var profileCtrl = angular.module('profileCtrl', ['ngMaterial', 'ngAnimate']);
 
 profileCtrl.controller('profileCtrl', profileFunction);
 
-function profileFunction($scope, $timeout, $mdSidenav, $log, $http, $rootScope, $filter){
+function profileFunction($scope, $timeout, $mdSidenav, $log, $http, $rootScope, $filter, $routeParams){
 
     var COLORS = ['#ffcdd2', '#ef9a9a', '#e57373', '#ff8a80', '#f8bbd0', '#f48fb1', '#ff80ab', '#e1bee7', '#ce93d8', '#ea80fc', '#9fa8da', '#c5cae9', '#64b5f6', '#42a5f5', '#90caf9', '#bbdefb', '#81d4fa','#4fc3f7', '#29b6f6','#26c6da','#80deea','#b2ebf2','#4dd0e1','#4db6ac','#26a69a','#4db6ac','#80cbc4','#81c784','#a5d6a7','#66bb6a','#ffee58','#fbc02d','#fdd835','#f9a825','#f57c00','#fb8c00','#ff7043','#ff8a65','#ffab91','#90a4ae','#b0bec5'];
-    
+    var profileId = $routeParams.profileid;
     function randomColor() {
         return COLORS[Math.floor(Math.random() * COLORS.length)];
     }
 
     var users = $http.get('users/users.json').success(function(data){
-    var user = $filter('filter')(data.users, function (d) {return d._id === '001';})[0];
+    var user = $filter('filter')(data.users, function (d) {return d._id === profileId;})[0];
     $scope.avatar = user.avatar;
 
     if(user.name.length < 13 && user.lastname.length < 15)

@@ -12,7 +12,7 @@ function routes($routeProvider, $mdThemingProvider){
           .warnPalette('pink');
 
         // Join Team Control Panel
-        $routeProvider.when('/profile', {
+        $routeProvider.when('/profile/:profileid', {
             controller: 'profileCtrl', 
             templateUrl: 'partials/profile.html',
 

@@ -6,7 +6,9 @@
 			"name": "Sergio",
 			"lastname": "Castillo",
 			"avatar":"images/sergio/sergio.jpg",
+			"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis nulla purus, vitae maximus leo ornare id. Nam ultrices posuere ipsum, quis efficitur mauris semper nec.",
 			"friends":["999","998","002","003"],
+			"followers": ["002","003"],
 			"closets":
 			[
 				{
@@ -45,6 +47,17 @@
 						{"url":"images/sergio/shoes/shoes1.jpg", "description":"nike air"},
 						{"url":"images/sergio/shoes/shoes2.jpg", "description":"looking good ;)"}
 					]
+				},
+				{
+					"name": "shirts fall 2016",
+					"dateadded":"2016-02-04T14:29:39.615Z",	
+					"images":
+					[
+						{"url":"images/hnm/shirts/shirt-1.jpg", "description":""},
+						{"url":"images/hnm/shirts/shirt-2.jpg", "description":""},
+						{"url":"images/hnm/shirts/shirt-3.jpg", "description":""},
+						{"url":"images/hnm/shirts/shirt-4.jpg", "description":""}
+					]
 				}
 			],
 		"catalogs":
@@ -82,7 +95,9 @@
 			"name": "H&M",
 			"lastname": "",
 			"avatar":"images/hnm.jpg",
+			"description":"Official account of H&M UK",
 			"friends":[],
+			"followers": ["001","002","003"],
 			"closets":
 			[
 				{
@@ -105,7 +120,9 @@
 			"name": "Primark",
 			"lastname": "",
 			"avatar":"images/primark.jpg",
+			"description":"Primark official account for UK",
 			"friends":[],
+			"followers": ["002","001"],
 			"closets":
 			[
 				{
@@ -127,7 +144,9 @@
 			"name": "Peter",
 			"lastname": "Millar",
 			"avatar":"images/peter/peter.jpg",
-			"friends":["999","001","003","004"],
+			"description":"Suspendisse efficitur, sapien vel tincidunt dignissim, metus enim fermentum ipsum, eu ultrices leo mi sit amet massa.",
+			"friends":["999","001","003"],
+			"followers": ["003","001"],
 			"closets":
 			[
 				{
@@ -205,7 +224,9 @@
 			"name": "Kevin",
 			"lastname": "Reaves",
 			"avatar":"images/kevin/kevin.jpg",
-			"friends":["999","001","003","004"],
+			"description":"Vestibulum tristique consequat ex, ac bibendum mauris semper vel. Praesent eu interdum urna. Fusce auctor purus nec lacus maximus, vel accumsan lacus egestas. Integer id interdum erat.",
+			"friends":["998","001","002"],
+			"followers": ["002","001"],
 			"closets":
 			[
 				{

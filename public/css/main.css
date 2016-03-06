@@ -215,7 +215,7 @@ md-content.md-default-theme, md-content {
 .simplednd ul[dnd-list] .dndPlaceholder {
     display: block;
     background-color: #fff;
-    min-height: 42px;
+    min-height: 100px;
     border-style: dashed;
     border-width: 5px;
     border-color: #666666;
@@ -233,7 +233,9 @@ md-content.md-default-theme, md-content {
     cursor: move;
  }
 
-
+ .userlink:hover{
+    cursor: pointer;
+ }
 .simplednd ul[dnd-list] li {
     background-color: #fff;
     /*border: 1px solid #ddd;*/
@@ -245,6 +247,8 @@ md-content.md-default-theme, md-content {
 }
 
 /*Testing AREA*/
+
+
 
 
 

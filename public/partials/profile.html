@@ -1,102 +1,119 @@
-    <md-toolbar layout="row"  class="md-whiteframe-5dp md-hue-1 toolbar-height">
-        <img hide-sm hide-xs class="toolbar-logo" ng-src="images/clothboardtoolbar.svg"></img>
-        <span flex></span>
-        <md-input-container md-no-float class="md-block">
-          <input  type="text" placeholder="Search" ng-model="searchText">
-          </md-input-container>
-        <md-input-container class="md-block">
+  <md-toolbar class="md-whiteframe-5dp md-hue-1">
+        <div class="md-toolbar-tools">
+          <span flex></span>
+          <md-button  aria-label="About us" ng-click="scrollTo('about')" hide-xs>
+            About us
+          </md-button>
+          <md-button  aria-label="Contact" ng-click="scrollTo('contact')" hide-xs>
+            Contact
+          </md-button>
+          <md-button aria-label="Sign up" ng-click="showSignIn($event)" hide-xs>
+            Sign up
+          </md-button>
+          <md-button  aria-label="Log in" ng-click="showLogIn($event)" hide-xs>
+            Log in
+          </md-button>
+          <md-menu>
+            <md-button class="md-icon-button" aria-label="More" show-xs hide-gt-xs ng-click="openMenu($mdOpenMenu, $event)">
+              <md-icon md-svg-icon="images/menu.svg"></md-icon>
+            </md-button> 
+            <md-menu-content width="2">
+              <md-menu-item>
+                <md-button aria-label="About us" ng-click="scrollTo('about')">
+                  About us
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button aria-label="Contact" ng-click="scrollTo('contact')">
+                  Contact
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button aria-label="Sign up" ng-click="showSignIn($event)">
+                  Sign up
+                </md-button>
+              </md-menu-item>
+              <md-menu-divider></md-menu-divider>
+              <md-menu-item>
+                <md-button aria-label="Log in" ng-click="showLogIn($event)">
+                  Log in
+                </md-button>
+              </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+        </div>
+  </md-toolbar>
 
-        <md-button hide-xs m class="toolbar-button" aria-label="Search">
-            <i class="material-icons">search</i>
-        </md-button>
-        <md-button hide-xs class="toolbar-button" aria-label="Notifications">
-            <i class="material-icons">notifications</i>
-            <span class="notifications-label">7</span>
-        </md-button>
-        <md-button hide-sm hide-xs class="toolbar-button" aria-label="Settings" ng-click="vm.toggleRightSidebar()">
-            <i class="material-icons">menu</i>
-        </md-button>
-        <md-button hide-gt-sm ng-click="vm.toggleItemsList()" aria-label="Menu">
-            <i class="material-icons">menu</i>
-        </md-button>
-    </md-toolbar>
+  <!--MAIN BODY CONTENT-->
+	<div layout="column" style="margin-top:10px">
+		<!--Row that contains the picture and description-->
+		<div layout="row">
+			<!--Margin 10%-->
+			<div layout="row" flex="10"></div>
+			<!--Column that contains All the information MAIN CONTENT-->
+			<div layout="column" flex="70" style=" background-color: #fafafa; border-radius: 10px; min-height:100vh;" layout-sm="column" layout-xs="column">
+				
+				<!--Column that contains HEADER INFO-->
+				<div layout="row"  flex-sm="100" layout-sm="column" layout-xs="column">
 
-    <md-content layout="column" >
-      <div layout="row" class="profile-column">
-          <!--MARGIN LEFT-->
-          <div flex="5" hide-xs hide-sm layout-margin></div>
+					<!--COLUM WITH THE PICTURE-->
+					<div layout="column" layout-gt-sm="20" layout-sm="100" layout-xs="100" layout-align ="center center">
+						<img style="height:152px; width:152px; border-radius: 75px; 	
+							-webkit-border-radius: 75px;
+							-moz-border-radius: 75px;
+							margin-left: 20px;
+							margin-top: 10px"
+						ng-src="{{user.avatar}}" class="md-whiteframe-3dp"></img>
+					</div>
 
-          <!--Menu Toolbar area-->
-          <div flex="15" flex-sm="30"hide-xs layout-margin  id="board"  class="white-background">
-            <div layout="row" layout-margin>
-              <img ng-src="{{avatar}}" class="avatar"></img>
-              <span class="md-caption">{{usernamedisplay}}</span>
-            </div>
-            <md-divider></md-divider>
-            <div layout="row" layout-margin class="gray-background">
-              <span class="md-body-2">CLOSET({{closetnum}})</span>
-            </div>
-            <div layout="row" layout-margin class="simplednd">
-                <div ng-include="'partials/closets.html'"></div>
-            </div>  
-         
-            <md-divider></md-divider>
-            <div layout="row" layout-margin class="gray-background">
-              <span class="md-body-2" flex>CATALOGS({{catalogs.length}})</span>
-            </div>
-            <div layout="row" layout-margin class="simplednd">
-                <div ng-include="'partials/catalogs.html'"></div>
-            </div>  
-          </div>
-            
-          <!--Drag and Drop area-->  
-          <div flex="25" hide-xs hide-sm layout-margin class="simplednd white-background">
-            <div layout="row" class="gray-background" >
-              <span class="md-title how-align" >Drag your galleries and Drop it here!</span>
-            </div>
-            <div ng-include="'partials/dashboard.html'"></div>
-          </div>
+					<!--COLUMN THAT WORK AS MARGIN BETWEEN PICTURE AND INFO-->
+					<div layout="column" flex="10" hide-xs hide-sm></div>
 
-          <!--Content área to add more galleries-->
-          <div flex="70" flex-xs="100" class="white-background" layout-margin style="overflow: scroll; height:100vh" >
-            <md-grid-list md-cols-xs="1" md-cols-sm="1" md-cols-md="2" md-cols-gt-md="3"
-            md-row-height-gt-md="1:1" md-row-height="2:2" 
-            md-gutter="2px" md-gutter-gt-sm="2px">
-              <md-grid-tile  ng-repeat="item in models.lists.Dashboard | orderBy:'-date' | filter : searchText" 
-                ng-style="{'background': item.color}" 
-                ng-class="{'md-whiteframe-5dp': hovering}"
-                ng-mouseenter="hovering=true" 
-                ng-mouseleave="hovering=false"
-                dnd-draggable="item"
-                dnd-effect-allowed="copy">
-              <div layout="column">
-                <div layout="row" >
-                  <img ng-src="{{item.useravatar}}" class="add-gallery"></img>
-                  <span class="md-caption">{{item.username}}</span>
-                  <span flex></span>
-                  <md-icon md-svg-src="images/add.svg" aria-label="Add" class="add-gallery" ng-click="addToCatalogs(item)"></md-icon>
-                </div>
-                <div layout="row">
-                                  <li style="list-style-type: none;" >
-                  <div class="container">
-                    <div class="slider" create-slider urls='item.urls' current="current" item="item" list="models.lists.Dashboard">
-                    </div>
-                  </div>
-                </li>
-                </div>
-              </div>
-                <md-grid-tile-footer>
-                  <h3>{{item.name}}</h3>
-                </md-grid-tile-footer>
-              </md-grid-tile >
-          </md-grid-list>
-          </div>
+					<!--Column that display USER INFORMATION-->
+					<div layout="column" flex="65" flex-sm="100" flex-xs="100">
 
-          <!--Margin Right-->
-          <div flex="5" hide-xs hide-sm layout-margin></div>
-      </div>
-    </md-content>
+						<!--NAME INFORMATION-->
+						<div layout="row" flex-sm="100" layout-align-sm="center" flex-xs="100" layout-align-xs="center" layout-margin>
+							<h1 class="md-headline">{{user.name}} {{user.lastname}}</h1>
+						</div>
 
+						<!--DESCRIPTION-->
+						<div layout="row" layout-margin flex-sm="100" layout-align-sm="center">
+							<p class="md-subhead" > {{user.description}}</p>
+						</div>
 
+						<!--SOCIAL INFORMATION-->
+						<div layout="row" layout-margin layout-align-sm="center" layout-xs="column" layout-align-xs="center">	
+							<span class="md-body-1">Following <b> {{user.friends.length}}</b></span>
+							<span class="md-body-1">Followers	<b> {{user.followers.length}}</b></span>
+							<span class="md-body-1">Galleries<b> {{user.closets.length}}</b></span>
+						</div>
+					</div>
+				</div>
+				<div>
+            		<md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="2" md-cols-gt-md="4"
+            			md-row-height-gt-md="1:1" md-row-height="2:2" 
+            			md-gutter="10px" md-gutter-gt-sm="10px">
+              			<md-grid-tile  ng-repeat="item in models.Closets | orderBy:'-date'" 
+                			ng-class="{'md-whiteframe-5dp': hovering}"
+                			ng-mouseenter="hovering=true" 
+                			ng-mouseleave="hovering=false">
+                   			<li style="list-style-type: none;" >
+                  				<div class="container">
+                    				<div class="slider" create-slider urls='item.urls' current="current" item="item" list="models.Closets">
+                    				</div>
+                  				</div>
+                			</li>
+                			<md-grid-tile-footer>
+                  				<h3>{{item.name}}</h3>
+                			</md-grid-tile-footer>
+              			</md-grid-tile >
+          			</md-grid-list>
+				</div>
+				<!--ROW THAT CONTAINS THE GALLERY-->
 
-
+			</div>
+			<!--Margin 20%-->
+			<div layout="row" flex="20"></div>
+		</div>
+	</div>
